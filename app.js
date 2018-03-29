@@ -1,6 +1,16 @@
 console.log('firing up app.js');
 const request = require('request');
+const yargs = require('yargs');
 
+const argv = yargs
+            .command('address','enter specific address',
+            {
+              alias : 'a',
+              demand : true,
+              title :
+            })
+            .help()
+            .argv;
 
 // the first param is options object and the second param is a callback
 request({
