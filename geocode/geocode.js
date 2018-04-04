@@ -24,6 +24,11 @@ var processAddress = (address,callback) =>
                             });
                           }
                       });
+
+
+
             };
+
+// secret key darksky api - 5bf18c4ec1eacd30f41fef1facacbfb0
 
 module.exports = {processAddress};
