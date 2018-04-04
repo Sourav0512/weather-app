@@ -1,6 +1,7 @@
 console.log('firing up app.js');
 const yargs = require('yargs');
 const geocode = require('./geocode/geocode.js');
+const darksky = require('./playground/darksky.js');
 
 const argv = yargs
             .command('address','address to fetch info for',{string:true})
@@ -22,7 +23,16 @@ geocode.processAddress(argv.address,(error,results)=>
             console.log(error);
           }
           else {
-            console.log(`Address below ===> `);
-            console.log(`weather : ${JSON.stringify(results,undefined,4)}`);
+            darksky.fetchWeather(results.longitude,
+                                 results.latitude,
+                                 (error,weatherResults) => {
+                                   if (error) {
+                                    console.log(error);
+                                   } else {
+                                     console.log(`weather is still ${weatherResults.temperature}.It is actually  ${weatherResults.apparentTemperature}.`);
+                                   }
+
+                                 });
+            console.log(`address is at ${JSON.stringify(results.address,undefined,4)}`);
           }
         });
