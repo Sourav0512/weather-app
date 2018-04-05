@@ -31,7 +31,6 @@ geocode.processAddress(argv.address,(error,results)=>
                                    } else {
                                      console.log(`weather is still ${weatherResults.temperature}.It is actually  ${weatherResults.apparentTemperature}.`);
                                    }
-
                                  });
             console.log(`address is at ${JSON.stringify(results.address,undefined,4)}`);
           }
