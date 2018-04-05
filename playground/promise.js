@@ -1,5 +1,4 @@
 console.log('Firing promise.js');
-
 var aysncAdd = (a,b) =>
 {
   return new Promise((resolve,reject) => {
@@ -13,7 +12,6 @@ var aysncAdd = (a,b) =>
     },100); //delay of 2.5 seconds
   });
 };
-
 aysncAdd(5,5).then((result)=>{
   console.log(`result is : ${result}`);
 },(error)=>{
